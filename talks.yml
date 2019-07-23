@@ -1,0 +1,6 @@
+demo:
+    files:
+        - todo.md
+        - README.md
+    folders:
+        notebooks: notebooks

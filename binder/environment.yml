@@ -1,0 +1,15 @@
+channels:
+- conda-forge
+dependencies:
+# Jupyter
+- ipywidgets
+- jupyter
+- jupyter_contrib_nbextensions
+# libraries
+- cite2c
+- invoke
+- matplotlib
+- numpy
+- scipy
+- pip:
+  - git+git://github.com/econ-ark/HARK.git@master

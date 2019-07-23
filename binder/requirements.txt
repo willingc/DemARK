@@ -1,9 +1,0 @@
-cite2c
-# econ-ark
-git+git://github.com/econ-ark/HARK.git@master
-ipywidgets
-jupyter
-jupyter_contrib_nbextensions
-matplotlib
-numpy
-scipy
