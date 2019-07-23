@@ -14,6 +14,9 @@ container to run the demo notebooks. Subsequent launches should be quicker.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/willingc/DemARK/troubleshoot)
 
+**Use this link to use latest master development version of econARK**
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/willingc/DemARK/try-master-latest-sha)
 
 ## Local installation
 
