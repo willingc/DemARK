@@ -1,3 +1,7 @@
+"""Configuration of invoke actions
+
+   Based on JupyterLab demo's use of invoke
+"""
 from __future__ import print_function
 from invoke import task, Collection
 import os
@@ -10,6 +14,44 @@ import shutil
 env_name = "econark-demo"
 demofolder = "demofiles"
 source = "" if os.name == "nt" else "source"
+
+
+@task
+def envconda(ctx, clean=False, env_name=env_name):
+    """
+    Creates environment for local conda
+    Args:
+    clean: deletes environment prior to reinstallation
+    env_name: name of environment to install
+    """
+    if clean:
+        print("deleting environment")
+        ctx.run("{0!s} deactivate; conda remove -n {1!s} --all".format(source, env_name))
+    # Create a new environment
+    print("creating environment {0!s}".format(env_name))
+    ctx.run("conda env create -f environment.yml -n {0!s}".format(env_name))
+
+    build(ctx, env_name=env_name)
+
+
+@task
+def envpip(ctx):
+    """
+    Creates environment for local conda
+    Args:
+    clean: deletes environment prior to reinstallation
+    """
+    # Create a new environment
+    print("creating environment")
+
+    ctx.run("python3 -m venv myarkenv")
+    ctx.run("source myarkenv/bin/activate")
+    ctx.run("pip install --upgrade pip")
+    ctx.run("pip install -r requirements.txt")
+    ctx.run("jupyter contrib nbextension install --user")
+    ctx.run("jupyter nbextension enable codefolding/main")
+    ctx.run("jupyter nbextension enable codefolding/edit")
+    ctx.run("jupyter nbextension enable --py latex_envs")
 
 
 def rmdir(dirname):
@@ -187,7 +229,7 @@ def talk(ctx, talk_name, clean=False):
 
 
 # Configure cross-platform settings.
-ns = Collection(environment, build, demofiles, r, clean, talk)
+ns = Collection(environment, build, demofiles, clean, talk, envconda, envpip)
 ns.configure(
     {
         "run": {

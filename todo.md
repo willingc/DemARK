@@ -6,7 +6,6 @@
 
 ## Enhancements for Binder or Local use
 - Add invoke to simplify for local user setup (similar to jupyterlab demo)
-- Use environment.yml and conda-forge in Binder
 - To Pin or not to pin requirements
 
 ## Tests
@@ -24,13 +23,6 @@ Latex errors Gentle-Intro-To-HARK-Buffer-Stock-Model nb
 ### Runtime or module errors (version or logic error?)
 - /srv/conda/envs/notebook/lib/python3.7/site-packages/HARK/interpolation.py:1675: RuntimeWarning: All-NaN slice encountered
 - LifecycleModelExample nb error No module named 'HARK.SolvingMicroDSOPs.EstimationParameters'
-
-### Can't find data file
-
-- MicroMacroProblems Both nbs error at Lorenz cell FileNotFoundError: [Errno 2] No such file or directory: '/srv/conda/envs/notebook/lib/python3.7/site-packages/HARK/cstwMPC/USactuarial.txt'
-- StructuralEstimates nb error FileNotFoundError: [Errno 2] No such file or directory: '/srv/conda/envs/notebook/lib/python3.7/site-packages/HARK/cstwMPC/USactuarial.txt'
-- Uncertainty-and-Savings-Rate nb No such file or directory: '/srv/conda/envs/notebook/lib/python3.7/site-packages/HARK/cstwMPC/USactuarial.txt'
-
 
 ### Slow, Runs until student exercise
 
